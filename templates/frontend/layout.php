@@ -10,9 +10,13 @@
 	<nav>
 		<a href="./" class="brand-logo">Projekt Template</a>
 		<ul>
-			<li><a href="#1">Link 1</a></li>
-			<li><a href="#2">Link 2</a></li>
-			<li><a href="#3">Link 3</a></li>
+<?php
+$result = $pdo->query('SELECT titel, href FROM menu');
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+	echo '			<li><a href="'.$row['href'].'">'.$row['titel'].'</a></li>' . PHP_EOL;
+}
+?>
 		</ul>
 	</nav>
 <?php
